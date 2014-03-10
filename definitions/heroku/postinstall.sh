@@ -63,15 +63,15 @@ pip install virtualenvwrapper
 echo "export WORKON_HOME=/home/vagrant/.virtualenvs" >> /home/vagrant/.bashrc
 echo "source /usr/local/bin/virtualenvwrapper.sh" >> /home/vagrant/.bashrc
 
-# Install PostgreSQL 9.2.4
-wget http://ftp.postgresql.org/pub/source/v9.2.4/postgresql-9.2.4.tar.bz2
-tar jxf postgresql-9.2.4.tar.bz2
-cd postgresql-9.2.4
+#Install PostgreSQL 9.3.3
+wget http://ftp.postgresql.org/pub/source/v9.3.3/postgresql-9.3.3.tar.bz2
+tar jxf postgresql-9.3.3.tar.bz2
+cd postgresql-9.3.3
 ./configure --prefix=/usr
 make world
 make install-world
 cd ..
-rm -rf postgresql-9.2.4*
+rm -rf postgresql-9.3.3*
 
 # Initialize postgres DB
 useradd -p postgres postgres
