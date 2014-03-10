@@ -22,16 +22,16 @@ sed -i -e 's/%admin ALL=(ALL) ALL/%admin ALL=NOPASSWD:ALL/g' /etc/sudoers
 # Install NFS client
 apt-get -y install nfs-common
 
-# Install Ruby from source in /opt so that users of Vagrant
+# Install Ruby 2.1.1 from source in /opt so that users of Vagrant
 # can install their own Rubies using packages or however.
-wget http://ftp.ruby-lang.org/pub/ruby/2.0/ruby-2.0.0-p247.tar.bz2
-tar jxf ruby-2.0.0-p247.tar.bz2
-cd ruby-2.0.0-p247
+wget http://cache.ruby-lang.org/pub/ruby/2.1/ruby-2.1.1.tar.bz2
+tar jxf ruby-2.1.1.tar.bz2
+cd ruby-2.1.1
 ./configure --prefix=/opt/ruby
 make
 make install
 cd ..
-rm -rf ruby-2.0.0-p247*
+rm -rf ruby-2.1.1*
 chown -R root:admin /opt/ruby
 chmod -R g+w /opt/ruby
 
