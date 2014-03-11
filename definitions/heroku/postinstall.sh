@@ -63,11 +63,21 @@ pip install virtualenvwrapper
 echo "export WORKON_HOME=/home/vagrant/.virtualenvs" >> /home/vagrant/.bashrc
 echo "source /usr/local/bin/virtualenvwrapper.sh" >> /home/vagrant/.bashrc
 
+#Install OSSP-UUID 1.6.2
+wget ftp://ftp.ossp.org/pkg/lib/uuid/uuid-1.6.1.tar.gz
+tar xzf uuid-1.6.1.tar.gz
+cd uuid-1.6.1
+./configure
+make
+make install
+cd ..
+rm -rf uuid-1.6.1
+
 #Install PostgreSQL 9.3.3
 wget http://ftp.postgresql.org/pub/source/v9.3.3/postgresql-9.3.3.tar.bz2
 tar jxf postgresql-9.3.3.tar.bz2
 cd postgresql-9.3.3
-./configure --prefix=/usr
+./configure --prefix=/usr --with-ossp-uuid
 make world
 make install-world
 cd ..
